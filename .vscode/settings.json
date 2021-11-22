@@ -1,6 +1,7 @@
 {
 	"files.associations": {
-		"utils.h": "c"
+		"utils.h": "c",
+		"compare.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
