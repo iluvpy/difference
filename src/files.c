@@ -32,5 +32,23 @@ int validate_files(files *_files) {
 	return FILES_OK; // everything ok
 }
 
+size_t get_file_size(FILE *fd) {
+	fseek(fd, 0, SEEK_END);
+	size_t size = ftell(fd);
+	fseek(fd, 0, SEEK_SET);
+	return size;
+}
 
+// returns file content
+char *get_fcontent(FILE *fd) {
+	size_t size = get_file_size(fd);
+	char *file_content = calloc(size+1, 1);
+	for (int i = 0; i < size; i++) {
+		file_content[i] = fgetc(fd);
+	}
+	return file_content;
+}
 
+void delete_fcontent(char *content) {
+	free(content);
+}
